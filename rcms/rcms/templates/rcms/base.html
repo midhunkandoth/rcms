@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> {% load staticfiles %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RCMS </title>
+
+
+  <!--STYLESHEET-->
+  <!--=================================================-->
+
+  <!--Open Sans Font [ OPTIONAL ] -->
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+
+
+  <!--Bootstrap Stylesheet [ REQUIRED ]-->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+  <!--Nifty Stylesheet [ REQUIRED ]-->
+  <link href="{% static 'css/nifty.min.css' %}" rel="stylesheet">
+
+  
+  <!--Font Awesome [ OPTIONAL ]-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!--Switchery [ OPTIONAL ]-->
+  <link href="{% static 'plugins/switchery/switchery.min.css' %}" rel="stylesheet">
+
+
+  <!--Bootstrap Select [ OPTIONAL ]-->
+  <link href="{% static 'plugins/bootstrap-select/bootstrap-select.min.css' %}" rel="stylesheet">
+
+
+  <!--Demo [ DEMONSTRATION ]-->
+  <link rel="stylesheet"  href="{% static 'plugins/lightSlider/css/lightslider.css' %}"/>
+
+
+
+  <!--SCRIPT-->
+  <!--=================================================-->
+
+  <!--Page Load Progress Bar [ OPTIONAL ]-->
+
+  <!--
+
+  REQUIRED
+  You must include this in your project.
+
+  RECOMMENDED
+  This category must be included but you may modify which plugins or components which should be included in your project.
+
+  OPTIONAL
+  Optional plugins. You may choose whether to include it in your project or not.
+
+  DEMONSTRATION
+  This is to be removed, used for demonstration purposes only. This category must not be included in your project.
+
+  SAMPLE
+  Some script samples which explain how to initialize plugins or components. This category should not be included in your project.
+
+
+  Detailed information and more samples can be found in the document.
+
+  -->
+    
+
+</head>
+
+<!--TIPS-->
+<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
+
+<body>
+  <div id="container" class="effect mainnav-lg">
+    
+    <!--NAVBAR-->
+    <!--===================================================-->
+    <header id="navbar">
+      <div id="navbar-container" class="boxed">
+
+        <!--Brand logo & name-->
+        <!--================================-->
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand">
+            <img src="img/logo.png" alt="" class="brand-icon">
+            <div class="brand-title">
+              <span class="brand-text">RCMS</span>
+            </div>
+          </a>
+        </div>
+        <!--================================-->
+        <!--End brand logo & name-->
+
+
+        <!--Navbar Dropdown-->
+        <!--================================-->
+        <div class="navbar-content clearfix">
+          <ul class="nav navbar-top-links pull-left">
+
+            <!--Navigation toogle button-->
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+            <li class="tgl-menu-btn">
+              <a class="mainnav-toggle" href="#">
+                <i class="fa fa-navicon fa-lg"></i>
+              </a>
+            </li>
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+            <!--End Navigation toogle button-->
+
+
+          </ul>
+          <ul class="nav navbar-top-links pull-right">
+
+
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+            <!--End language selector-->
+
+
+
+            <!--User dropdown-->
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+            <li id="dropdown-user" class="dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
+                <span class="pull-right">
+                  <img class="img-circle img-user media-object" src="img/av1.png" alt="Profile Picture">
+                </span>
+                <div class="username hidden-xs">John Doe</div>
+              </a>
+
+
+              <div class="dropdown-menu dropdown-menu-md dropdown-menu-right with-arrow panel-default">
+
+                <!-- Dropdown heading  -->
+
+
+                <!-- User dropdown menu -->
+           
+
+                <!-- Dropdown footer -->
+                <div class="pad-all text-right">
+                  <a href="{% url 'logout' %}?next={{ request.path }}" class="btn btn-primary">
+                    <i class="fa fa-sign-out fa-fw"></i> Logout
+                  </a>
+                </div>
+              </div>
+            </li>
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+            <!--End user dropdown-->
+
+          </ul>
+        </div>
+        <!--================================-->
+        <!--End Navbar Dropdown-->
+
+      </div>
+    </header>
+    <!--===================================================-->
+    <!--END NAVBAR-->
+
+    <div class="boxed">
+
+      <!--CONTENT CONTAINER-->
+      <!--===================================================-->
+      <div id="content-container">
+
+        <!--Page Title-->
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        {% block header%}
+
+        {% endblock %}
+
+        <!--Page content-->
+        <!--===================================================-->
+        <div id="page-content">
+          {% block content %}
+
+          {% endblock %}
+        </div>
+        <!--===================================================-->
+        <!--End page content-->
+
+
+      </div>
+      <!--===================================================-->
+      <!--END CONTENT CONTAINER-->
+
+
+      
+      <!--MAIN NAVIGATION-->
+      <!--===================================================-->
+      <nav id="mainnav-container">
+        <div id="mainnav">
+
+          <!--Menu-->
+          <!--================================-->
+          <div id="mainnav-menu-wrap">
+            <div class="nano">
+              <div class="nano-content">
+                <ul id="mainnav-menu" class="list-group">
+                  <!--Category name-->
+                  <li class="list-header">Navigation</li>
+                  <!--Menu list item-->
+                  <li>
+                    <a href="index.html">
+                      <i class="fa fa-dashboard"></i>
+                      <span class="menu-title">
+                        <strong>Dashboard</strong>
+                        <span class="label label-success pull-right">Top</span>
+                      </span>
+                    </a>
+                  </li>
+
+                  <li class="list-divider"></li>
+                  <!--Category name-->
+                  <li class="list-header">Components</li>
+
+
+                  <!--Menu list item-->
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-plus-square"></i>
+                      <span class="menu-title">Menu Level</span>
+                      <i class="arrow"></i>
+                    </a>
+
+                    <!--Submenu-->
+                    <ul class="collapse">
+                      <li><a href="#">Second Level Item</a></li>
+                      <li><a href="#">Second Level Item</a></li>
+                      <li><a href="#">Second Level Item</a></li>
+                      <li class="list-divider"></li>
+                      <li>
+                        <a href="#">Third Level<i class="arrow"></i></a>
+
+                        <!--Submenu-->
+                        <ul class="collapse">
+                          <li><a href="#">Third Level Item</a></li>
+                          <li><a href="#">Third Level Item</a></li>
+                          <li><a href="#">Third Level Item</a></li>
+                          <li><a href="#">Third Level Item</a></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="#">Third Level<i class="arrow"></i></a>
+
+                        <!--Submenu-->
+                        <ul class="collapse">
+                          <li><a href="#">Third Level Item</a></li>
+                          <li><a href="#">Third Level Item</a></li>
+                          <li><a href="#">Third Level Item</a></li>
+                          <li class="list-divider"></li>
+                          <li><a href="#">Third Level Item</a></li>
+                          <li><a href="#">Third Level Item</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+
+                </ul>
+
+              </div>
+            </div>
+          </div>
+          <!--================================-->
+          <!--End menu-->
+
+        </div>
+      </nav>
+      <!--===================================================-->
+      <!--END MAIN NAVIGATION-->
+      
+      <!--ASIDE-->
+      <!--===================================================-->
+      <aside id="aside-container">
+<!-- <!--  --> -->
+    </div>
+
+    
+
+    <!-- FOOTER -->
+    <!--===================================================-->
+    <footer id="footer">
+
+      <!-- Visible when footer positions are fixed -->
+      <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+      <!-- Visible when footer positions are static -->
+      <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+      <div class="hide-fixed pull-right pad-rgt">Currently v2.2</div>
+
+
+
+      <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+      <!-- Remove the class name "show-fixed" and "hide-fixed" to make the content always appears. -->
+      <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+      <p class="pad-lft">&#0169; 2015 Your Company</p>
+
+
+
+    </footer>
+    <!--===================================================-->
+    <!-- END FOOTER -->
+
+
+    <!-- SCROLL TOP BUTTON -->
+    <!--===================================================-->
+    <!--===================================================-->
+
+
+
+  </div>
+  <!--===================================================-->
+  <!-- END OF CONTAINER -->
+
+
+  <!--JAVASCRIPT-->
+  <!--=================================================-->
+
+  <!--jQuery [ REQUIRED ]-->
+  <script src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+
+
+  <!--BootstrapJS [ RECOMMENDED ]-->
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+
+  <!--Fast Click [ OPTIONAL ]-->
+  <script src="{% static 'plugins/fast-click/fastclick.min.js' %}"></script>
+
+  
+  <!--Nifty Admin [ RECOMMENDED ]-->
+  <script src="{% static 'js/nifty.min.js' %}"></script>
+
+
+  <!--Switchery [ OPTIONAL ]-->
+  <script src="{% static 'plugins/switchery/switchery.min.js' %}"></script>
+
+
+  <!--Bootstrap Select [ OPTIONAL ]-->
+  <script src="{% static 'plugins/bootstrap-select/bootstrap-select.min.js' %}"></script>
+  <script src="{% static 'plugins/lightSlider/js/lightslider.js' %}"></script> 
+
+
+  <!--Demo script [ DEMONSTRATION ]-->
+
+  
+  <!--
+
+  REQUIRED
+  You must include this in your project.
+
+  RECOMMENDED
+  This category must be included but you may modify which plugins or components which should be included in your project.
+
+  OPTIONAL
+  Optional plugins. You may choose whether to include it in your project or not.
+
+  DEMONSTRATION
+  This is to be removed, used for demonstration purposes only. This category must not be included in your project.
+
+  SAMPLE
+  Some script samples which explain how to initialize plugins or components. This category should not be included in your project.
+
+
+  Detailed information and more samples can be found in the document.
+
+  -->
+ {% block footer%}
+
+ {% endblock %}
+
+</body>
+</html>

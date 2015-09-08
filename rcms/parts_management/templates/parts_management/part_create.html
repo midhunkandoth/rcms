@@ -1,0 +1,48 @@
+{% extends 'rcms/base.html'%}
+
+{% block header %}{% load staticfiles %}
+      <div id="page-title">
+          <h1 class="page-header text-overflow">Part Create</h1>
+
+          <!--Searchbox-->
+        </div>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <!--End page title-->
+
+
+        <!--Breadcrumb-->
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <ol class="breadcrumb">
+          <li><a href="/">Dashboard</a></li>
+          <li><a href="#">Part Create</a></li>
+        </ol>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <!--End breadcrumb-->
+{% endblock %}
+
+{% block content %}
+	           <!--User table-->
+              <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+              {% if success %}
+
+                  {{success}}
+
+              {% endif %}
+
+              <div class="panel">
+                <div class="panel-heading">
+                  <div class="panel-control">
+                  </div>
+                  <h3 class="panel-title">Enter Parts Arrangement Details</h3>
+                </div>
+                <div class="panel-body">
+                    <a class="pull-right" href="{% url 'part_list' %}"> <button class="btn btn-primary">Part List</button></button> </a>
+                    <form action="" method="post">{% csrf_token %}
+                          {{ form.as_p }}
+                          <input type="submit" class="btn btn-success margin" value="Create" />
+                    </form>
+                </div>
+              </div>
+              <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+              <!--End user table-->
+{% endblock %}
